@@ -5,5 +5,5 @@
 *.exe
 
 # The input output file used for user interactions
-intput.txt
+input.txt
 output.txt
