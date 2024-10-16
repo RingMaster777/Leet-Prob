@@ -6,6 +6,13 @@
 #define ll long long
 using namespace std;
 
+int strStr(string haystack, string needle)
+{
+
+    int index = haystack.find(needle);
+    return index;
+}
+
 int main()
 {
     ios_base::sync_with_stdio(false);
@@ -15,8 +22,10 @@ int main()
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
 #endif
+    string haystack, needle;
 
-    cout << "Hello from Home PC";
-
+    cin >> haystack >> needle;
+    int result = strStr(haystack, needle);
+    cout << result;
     return 0;
 }
