@@ -1,11 +1,6 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
-#include <map>
-
-#define ll long long
+#include <bits/stdc++.h>
 using namespace std;
+#define ll long long
 
 int romanToInt(string s)
 {
