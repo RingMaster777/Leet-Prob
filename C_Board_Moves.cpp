@@ -26,31 +26,22 @@ const int INF_INT = INT_MAX;
 void solve()
 {
     // Your problem-solving logic goes here
-    ll n, m, x = 0, round = 0, maxRound = 0;
-    cin >> n >> m;
+    ll n, sum = 0;
+    cin >> n;
 
-    int a[100];
-
-    for (int i = 0; i < n; i++)
+    for (ll i = 1; i <= n / 2; i++)
     {
-        cin >> a[i];
-        round = (a[i] + m - 1) / m;
-
-        if (round >= maxRound)
-        {
-            maxRound = round;
-            x = i + 1;
-        }
+        /* code */
+        sum += (i * i);
     }
-
-    cout << x << endl;
+    cout << sum * 8 << endl;
 }
 
 int main()
 {
     fastio;
-    int t = 1; // Default to one test case
-    // cin >> t;  // If there are multiple test cases
+    int t = 0; // Default to one test case
+    cin >> t;  // If there are multiple test cases
     while (t--)
     {
         solve();

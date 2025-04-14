@@ -26,31 +26,44 @@ const int INF_INT = INT_MAX;
 void solve()
 {
     // Your problem-solving logic goes here
-    ll n, m, x = 0, round = 0, maxRound = 0;
-    cin >> n >> m;
+    ll n, count = 0;
+    string s;
+    cin >> n >> s;
+    ll l = s.size();
 
-    int a[100];
+    unordered_map<char, int> left, right;
+    ll maxCount = 2;
 
-    for (int i = 0; i < n; i++)
+    for (char ch : s)
     {
-        cin >> a[i];
-        round = (a[i] + m - 1) / m;
-
-        if (round >= maxRound)
-        {
-            maxRound = round;
-            x = i + 1;
-        }
+        right[ch]++;
     }
 
-    cout << x << endl;
+    for (int i = 0; i < l - 1; i++)
+    {
+        left[s[i]] = 1;
+
+        if (right[s[i]] == 1)
+        {
+
+            right.erase(s[i]);
+        }
+        else
+        {
+            right[s[i]]--;
+        }
+
+        maxCount = max(maxCount, ((ll)left.size() + (ll)right.size()));
+    }
+
+    cout << maxCount << endl;
 }
 
 int main()
 {
     fastio;
     int t = 1; // Default to one test case
-    // cin >> t;  // If there are multiple test cases
+    cin >> t;  // If there are multiple test cases
     while (t--)
     {
         solve();

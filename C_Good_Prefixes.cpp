@@ -26,31 +26,34 @@ const int INF_INT = INT_MAX;
 void solve()
 {
     // Your problem-solving logic goes here
-    ll n, m, x = 0, round = 0, maxRound = 0;
-    cin >> n >> m;
+    ll n;
+    cin >> n;
+    // Example input/output
 
-    int a[100];
+    ll maxElem = LLONG_MIN;
+    vector<ll> arr(n);
 
+    ll c = 0, sum = 0;
     for (int i = 0; i < n; i++)
     {
-        cin >> a[i];
-        round = (a[i] + m - 1) / m;
+        cin >> arr[i];
 
-        if (round >= maxRound)
+        maxElem = max(maxElem, arr[i]);
+        sum += arr[i];
+        if (sum - maxElem == maxElem)
         {
-            maxRound = round;
-            x = i + 1;
+            c++;
         }
     }
 
-    cout << x << endl;
+    cout << c << endl;
 }
 
 int main()
 {
     fastio;
     int t = 1; // Default to one test case
-    // cin >> t;  // If there are multiple test cases
+    cin >> t;  // If there are multiple test cases
     while (t--)
     {
         solve();

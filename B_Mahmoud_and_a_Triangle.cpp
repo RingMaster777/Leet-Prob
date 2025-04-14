@@ -26,24 +26,27 @@ const int INF_INT = INT_MAX;
 void solve()
 {
     // Your problem-solving logic goes here
-    ll n, m, x = 0, round = 0, maxRound = 0;
-    cin >> n >> m;
+    ll n;
+    cin >> n;
+    vector<ll> s(n);
 
-    int a[100];
-
-    for (int i = 0; i < n; i++)
+    for (ll i = 0; i < n; i++)
     {
-        cin >> a[i];
-        round = (a[i] + m - 1) / m;
+        cin >> s[i];
+    }
 
-        if (round >= maxRound)
+    sort(s.begin(), s.end());
+
+    for (ll i = 1; i < s.size() - 1; i++)
+    {
+        if (s[i - 1] + s[i] > s[i + 1])
         {
-            maxRound = round;
-            x = i + 1;
+            cout << "YES" << endl;
+            return;
         }
     }
 
-    cout << x << endl;
+    cout << "NO" << endl;
 }
 
 int main()

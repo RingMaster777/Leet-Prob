@@ -26,31 +26,30 @@ const int INF_INT = INT_MAX;
 void solve()
 {
     // Your problem-solving logic goes here
-    ll n, m, x = 0, round = 0, maxRound = 0;
-    cin >> n >> m;
+    ll a1, a2, b1, b2, sum = 0;
+    cin >> a1 >> a2 >> b1 >> b2;
 
-    int a[100];
+    int winCount = 0;
 
-    for (int i = 0; i < n; i++)
-    {
-        cin >> a[i];
-        round = (a[i] + m - 1) / m;
+    // All 4 possible draw orders
+    if ((a1 > b1) + (a2 > b2) > (a1 < b1) + (a2 < b2))
+        winCount++;
+    if ((a1 > b2) + (a2 > b1) > (a1 < b2) + (a2 < b1))
+        winCount++;
+    if ((a2 > b1) + (a1 > b2) > (a2 < b1) + (a1 < b2))
+        winCount++;
+    if ((a2 > b2) + (a1 > b1) > (a2 < b2) + (a1 < b1))
+        winCount++;
 
-        if (round >= maxRound)
-        {
-            maxRound = round;
-            x = i + 1;
-        }
-    }
-
-    cout << x << endl;
+    cout << winCount << '\n';
+    // cout << sum << endl;
 }
 
 int main()
 {
     fastio;
     int t = 1; // Default to one test case
-    // cin >> t;  // If there are multiple test cases
+    cin >> t;  // If there are multiple test cases
     while (t--)
     {
         solve();
